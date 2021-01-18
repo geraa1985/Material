@@ -6,5 +6,23 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="colorBackground">#FFFFFF</item>
+        <item name="colorBottomAppBar">#FFC400</item>
+        <item name="colorText">#651FFF</item>
+        <item name="colorFab">#C6FF00</item>
+        <item name="colorFabIcon">#D500F9</item>
     </style>
+
+
+    <style name="AppTheme.Second">
+        <item name="colorBackground">#AAA1A1</item>
+        <item name="colorBottomAppBar">#3D5AFE</item>
+        <item name="colorText">#FFEA00</item>
+        <item name="colorFab">#D500F9</item>
+        <item name="colorFabIcon">#00E5FF</item>
+    </style>
+
+
+
 </resources>
