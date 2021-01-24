@@ -15,6 +15,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import geraa1985.material.R
 import geraa1985.material.ui.MainActivity
 import geraa1985.material.ui.chips.ChipsFragment
+import geraa1985.material.ui.viewpagersample.ViewPagerActivity
 import kotlinx.android.synthetic.main.main_fragment.*
 
 class PictureOfTheDayFragment : Fragment() {
@@ -55,13 +56,16 @@ class PictureOfTheDayFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.app_bar_fav -> toast("Favourite")
             R.id.app_bar_settings -> activity?.supportFragmentManager?.beginTransaction()
                 ?.add(R.id.container, ChipsFragment())?.addToBackStack(null)?.commit()
             android.R.id.home -> {
                 activity?.let {
                     BottomNavigationDrawerFragment().show(it.supportFragmentManager, "tag")
                 }
+            }
+            R.id.app_bar_pageview -> {
+                val intent = Intent(requireActivity(), ViewPagerActivity::class.java)
+                startActivity(intent)
             }
         }
         return super.onOptionsItemSelected(item)
