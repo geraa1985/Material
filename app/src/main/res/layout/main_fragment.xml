@@ -2,7 +2,8 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="?attr/colorBackground">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -38,7 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="15dp"
-            android:layout_marginBottom="100dp">
+            android:layout_marginBottom="15dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -70,6 +71,8 @@
                     android:id="@+id/explanation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="?attr/colorText"
+                    android:layout_marginBottom="100dp"
                     android:textSize="25sp"/>
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
@@ -83,7 +86,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        app:backgroundTint="@color/colorPrimary"
+        app:backgroundTint="?attr/colorBottomAppBar"
         app:fabAlignmentMode="center"
         app:hideOnScroll="true"
         app:layout_scrollFlags="scroll|enterAlways"
@@ -93,10 +96,10 @@
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/colorAccent"
+        android:backgroundTint="?attr/colorFab"
         app:layout_anchor="@id/bottom_app_bar"
         app:srcCompat="@drawable/ic_plus_fab"
-        app:tint="#FFFFFF"
+        app:tint="?attr/colorFabIcon"
         android:contentDescription="@string/fab" />
 
 
