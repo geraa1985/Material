@@ -1,5 +1,6 @@
 package geraa1985.material.ui.chips
 
+import android.animation.ValueAnimator
 import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
@@ -34,6 +35,34 @@ class ChipsFragment : Fragment() {
         } else {
             theme_B.isChecked = true
         }
+
+        ValueAnimator.ofFloat(0f, 360f).apply {
+            duration = 4000
+            addUpdateListener { animation ->
+                view.rotation = animation.animatedValue as Float
+            }
+            repeatCount = 2
+        }.start()
+
+        ValueAnimator.ofFloat(0f, -360f).apply {
+            duration = 4000
+            addUpdateListener { animation ->
+                theme_A.rotation = animation.animatedValue as Float
+                theme_B.rotation = animation.animatedValue as Float
+            }
+            repeatCount = 3
+        }.start()
+
+        ValueAnimator.ofFloat(0.8f, 1.0f).apply {
+            duration = 4000
+            addUpdateListener { animation ->
+                theme_A.scaleX = animation.animatedValue as Float
+                theme_A.scaleY = animation.animatedValue as Float
+                theme_B.scaleX = animation.animatedValue as Float
+                theme_B.scaleY = animation.animatedValue as Float
+            }
+            repeatCount = 3
+        }.start()
 
         chipGroup.setOnCheckedChangeListener { chipGroup, position ->
             chipGroup.findViewById<Chip>(position)?.let {
