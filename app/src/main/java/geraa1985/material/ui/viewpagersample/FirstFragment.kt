@@ -7,17 +7,28 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.Toast
+import androidx.transition.ChangeBounds
+import androidx.transition.ChangeImageTransform
+import androidx.transition.TransitionManager
+import androidx.transition.TransitionSet
 import coil.api.load
 import geraa1985.material.R
 import geraa1985.material.ui.picture.PictureOfTheDayData
 import geraa1985.material.ui.picture.PictureOfTheDayViewModel
 import kotlinx.android.synthetic.main.activity_view_pager.*
 import kotlinx.android.synthetic.main.fragment_first.*
+import kotlinx.android.synthetic.main.fragment_first.explanation
+import kotlinx.android.synthetic.main.fragment_first.image_view
+import kotlinx.android.synthetic.main.fragment_first.video_view
+import kotlinx.android.synthetic.main.main_fragment.*
 
 class FirstFragment : Fragment() {
 
     val date = "2020-01-25"
+
+    private var isLarge: Boolean = false
 
     private val viewModel: PictureOfTheDayViewModel by lazy {
         PictureOfTheDayViewModel()
@@ -34,6 +45,25 @@ class FirstFragment : Fragment() {
         super.onStart()
         viewModel.getData(date)
             .observe(viewLifecycleOwner, { renderData(it) })
+
+        image_view.setOnClickListener {
+            isLarge = !isLarge
+            TransitionManager.beginDelayedTransition(
+                ll3, TransitionSet()
+                    .addTransition(ChangeBounds())
+                    .addTransition(ChangeImageTransform())
+            )
+
+            val params: ViewGroup.LayoutParams = image_view.layoutParams
+            params.height = if (isLarge) ViewGroup.LayoutParams.MATCH_PARENT
+            else ViewGroup.LayoutParams.WRAP_CONTENT
+            params.width = if (isLarge) ViewGroup.LayoutParams.MATCH_PARENT
+            else ViewGroup.LayoutParams.WRAP_CONTENT
+            image_view.layoutParams = params
+
+            image_view.scaleType =
+                if (isLarge) ImageView.ScaleType.CENTER_CROP else ImageView.ScaleType.FIT_CENTER
+        }
     }
 
     @SuppressLint("SetJavaScriptEnabled")
