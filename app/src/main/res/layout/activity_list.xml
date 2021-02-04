@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.listoftasks.ListActivity">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list_of_tasks"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_add_task"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/list_of_tasks"
+        app:layout_constraintEnd_toEndOf="@+id/list_of_tasks"
+        app:layout_constraintStart_toStartOf="@+id/list_of_tasks"
+        app:layout_constraintTop_toTopOf="@+id/list_of_tasks"
+        android:src="@drawable/ic_plus_fab"
+        app:layout_constraintVertical_bias="0.95"
+        app:layout_constraintHorizontal_bias="0.95"
+        android:contentDescription="Add a task"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/list_of_tasks"
+        app:layout_constraintEnd_toEndOf="@+id/list_of_tasks"
+        app:layout_constraintStart_toStartOf="@+id/list_of_tasks"
+        app:layout_constraintTop_toTopOf="@+id/list_of_tasks"
+        android:src="@drawable/ic_back_fab"
+        app:layout_constraintVertical_bias="0.95"
+        app:layout_constraintHorizontal_bias="0.75"
+        android:contentDescription="Go back"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
