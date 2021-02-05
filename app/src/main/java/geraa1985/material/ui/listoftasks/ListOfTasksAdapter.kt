@@ -88,7 +88,14 @@ class ListOfTasksAdapter(private var tasks: MutableList<Task>) :
     }
 
     fun onItemDismiss(position: Int) {
-        tasks.removeAt(position)
-        notifyItemRemoved(position)
+        Single.fromCallable {
+            MyApp.instance.db.taskDAO.delete(tasks[position].id)
+            return@fromCallable MyApp.instance.db.taskDAO.getAll()
+        }.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+            .subscribe({ newList ->
+                updateList(newList)
+            }, {
+
+            })
     }
 }
