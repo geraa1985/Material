@@ -7,7 +7,7 @@
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/card_task_margins"
     app:cardElevation="20dp"
-    app:cardCornerRadius="10dp">
+    app:cardCornerRadius="30dp">
 
     <FrameLayout
         android:id="@+id/item_background"
@@ -35,12 +35,14 @@
             android:id="@+id/task_text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/task_title"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/icon_delete"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0"
             android:layout_margin="15dp"
+            android:textSize="30sp"
+            android:fontFamily="@font/calligraffitti"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/icon_delete"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/task_title"
             tools:text="My very important note text with very important information" />
 
         <ImageView
