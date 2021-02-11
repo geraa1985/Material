@@ -23,6 +23,10 @@
         <item name="colorFabIcon">#00E5FF</item>
     </style>
 
+    <style name="AppTheme.Splash">
+        <item name="android:windowBackground">@color/splash</item>
+    </style>
+
 
 
 </resources>

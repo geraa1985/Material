@@ -15,5 +15,7 @@
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
 
+    <color name="splash">#00001e</color>
+
     <color name="text_secondary">#66000000</color>
 </resources>
