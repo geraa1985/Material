@@ -4,17 +4,17 @@
     android:shape="rectangle"
     android:thickness="0dp">
 
-    <stroke
-        android:width="2dp"
-        android:color="#4799E8" />
+<!--    <stroke-->
+<!--        android:width="2dp"-->
+<!--        android:color="#4799E8" />-->
 
     <corners
-        android:radius="10dp" />
+        android:radius="30dp" />
 
     <gradient
         android:angle="135"
-        android:startColor="@color/material_on_surface_stroke"
-        android:endColor="#FFFFFF"
+        android:startColor="#FAEDEA"
+        android:endColor="#ECFBE9"
         android:type="linear" />
 
 </shape>

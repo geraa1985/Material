@@ -2,8 +2,13 @@ package geraa1985.material.ui.picture
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.Typeface
 import android.net.Uri
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
 import android.view.*
 import android.widget.ImageView
 import android.widget.Toast
@@ -127,7 +132,23 @@ class PictureOfTheDayFragment : Fragment() {
                         }
                     }
 
-                    explanation.text = serverResponseData.explanation
+                    val spannable = SpannableString(serverResponseData.explanation)
+                    var endPoint = 0
+                    for (i in 0..spannable.length) {
+                        if(spannable[i] == ' ') {
+                            endPoint = i
+                            break
+                        }
+                    }
+                    spannable.setSpan(
+                        ForegroundColorSpan(Color.RED),
+                        0, endPoint,
+                        Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                    )
+                    explanation.text = spannable
+                    explanation.typeface = Typeface.createFromAsset(requireActivity().assets,
+                        "fonts/Architects_Daughter/ArchitectsDaughter-Regular.ttf")
+
                 }
             }
             is PictureOfTheDayData.Loading -> {
